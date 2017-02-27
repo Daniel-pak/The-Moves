@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="TheMovesApp">
+
+<head>
+    <meta charset="UTF-8">
+    <title>The Moves</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/css/materialize.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <nav class="container-fluid nav-extended">
+        <div class="nav-wrapper">
+            <img src="http://www.clipartbest.com/cliparts/4c9/Led/4c9LedLgi.png" class="pin_drop" alt="">
+            <ul class="right">
+            <li><a href="" data-target="signInModal" modal>Sign In</a></li> <!-- change with ng-show/ng-hide -->
+            <li><a href="">Sign Up!</a></li> <!-- change with ng-show/ng-hide -->
+            </ul>
+            <ul class='nav-content tabs tabs-transparent'>
+                <li class="tab">
+                    <a href="#/home">home</a></li>
+
+                <li class="tab"><a href="#/daily">Daily Inspiration</a>
+                </li>
+                <li class="tab"><a href="#">My Calender/Events</a></li> <!--ng-hide -->
+            </ul>
+        </div>
+    </nav>
+    
+    <sign-in></sign-in>
+    <ng-view></ng-view>
+
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular-route.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/js/materialize.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular-materialize/0.2.2/angular-materialize.min.js"></script>
+    <script src="app.js"></script>
+    <!-- services --> 
+    <script src="components/services/eventService.js"></script>
+    <!-- routes -->
+    <script src="components/main/main.js"></script>
+    <script src="components/daily_inspiration/daily.js"></script>
+    <!-- directives --> 
+    <script src="components/signin/signin.js"></script>
+</body>
+
+</html>
