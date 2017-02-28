@@ -2,7 +2,7 @@
     <div class="col s8 offset-s2">
         <ul class="collapsible popout" data-collapsible="">
             <li ng-repeat="event in events">
-                <div class="collapsible-header"><h3>{{event.title}}</h3><p>{{event.date}}</p><p>{{event.category | uppercase}}</p></div>
+                <div class="collapsible-header"><h3>{{event.title}}</h3><p>{{event.date}}</p></div>
                 <div class="collapsible-body">
                     <h6>Price: {{event.price | currency}}</h6>
                     <p>Where: {{event.location}}</p>

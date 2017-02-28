@@ -21,18 +21,20 @@
     <div class="col s6 offset-s3">
         <div class="row">
             <div class="input-field">
-                <select material-select multiple watch>
-                    <option value="music">Music</option>
+                <select material-select watch ng-model="category">
+                    <option  value="music">Music</option>
                     <option value="party">Party</option>
                     <option value="food">Food</option>
+                    <option value="theater">Theater</option>
                     <option value="outdoors">Outdoors</option>
-                    <option value="activities">Activities</option>
+                    <option value="education">Education</option>
                     <option value="night_time">For the night</option>
+                    <option value="art">Art</option>
                 </select>
                 <label for="search_input">Search By Category here</label>
             </div>
         </div>
-        <button class="btn waves-effect waves-light" type="submit" name="action">Submit
+        <button class="btn waves-effect waves-light" name="action" ng-click="searchByCategory(category)">Submit
         </button>
     </div>
 </div>

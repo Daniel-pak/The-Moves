@@ -17,4 +17,11 @@ eventRoute.post('/', function(req, res) {
     })
 })
 
+eventRoute.get('/category/:category', function(req, res) { 
+    Event.find(req.params, function(err, events) { 
+        if(err) res.status(500).send(err)
+        res.send(events)
+    })
+})
+
 module.exports = eventRoute

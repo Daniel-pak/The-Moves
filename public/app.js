@@ -10,4 +10,12 @@ angular.module("TheMovesApp", ["ngRoute", "ui.materialize"])
             templateUrl: "components/daily_inspiration/daily.html", 
             controller: "DailyController"
         })
+        .when("/events/:category", { 
+            templateUrl: "components/event_specific/event_specific.html", 
+            controller: "EventSpecificController"
+        })
+        .when("/signup", {
+            templateUrl: "components/signup/signup.html",
+            controller: "SignUpController"
+    })
 }])
