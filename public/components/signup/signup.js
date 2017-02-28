@@ -1,7 +1,11 @@
 angular.module("TheMovesApp")
 
-.controller("SignUpController", [function(){ 
+.controller("SignUpController", ["$scope", "UserService", function($scope, UserService){ 
 
-    $scope.test = "Hello"
+    $scope.addUser = function(newUser) { 
+        UserService.createUser(newUser).then(function(response) { 
+            console.log(response)
+        })
+    }
     
 }])

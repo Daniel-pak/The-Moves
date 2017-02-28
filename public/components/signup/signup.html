@@ -3,22 +3,26 @@
         <div class="col s6 offset-s3">
             <form action="">
                 <div class="input-field">
-                    <input type="text">
-                    <label for="">First Name</label>
+                    <input type="text" ng-model="newUser.firstName">
+                    <label>First Name</label>
                 </div>
                 <div class="input-field">
-                    <input type="text">
-                    <label for="">Last Name</label>
+                    <input type="text" ng-model="newUser.lastName">
+                    <label>Last Name</label>
                 </div>
                 <div class="input-field">
-                    <input type="text">
-                    <label for="">Email Address</label>
+                    <input type="text" ng-model="newUser.email">
+                    <label>Email Address</label>
                 </div>
                 <div class="input-field">
-                    <input type="text">
-                    <label for="">Password</label>
+                    <input type="text" ng-model="newUser.password">
+                    <label>Password</label>
                 </div>
-                <button>Create new account</button>
+                <div class="input-field">
+                    <input type="text" ng-model="newUser.location">
+                    <label>Location</label>
+                </div>
+                <button type="button" ng-click="addUser(newUser)">Create new account</button>
             </form>
         </div>
     </div>

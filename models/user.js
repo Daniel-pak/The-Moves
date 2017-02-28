@@ -10,15 +10,19 @@ var newUserSchema = new schema({
         type: String,
         required: true
     },
-    email: { 
-        type:String,
-        required: true
-    }, 
-    password: { 
+    email: {
         type: String,
         required: true
-    } 
-    location: String
+    },
+    password: {
+        type: String,
+        required: true
+    },
+    location: String,
+    savedEventId: [{
+        type: schema.Types.ObjectId,
+        ref: "Event"
+    }]
 })
 
 module.exports = mongoose.model("User", newUserSchema);
