@@ -1,28 +1,37 @@
 <div class="container">
     <div class="row">
         <div class="col s6 offset-s3">
-            <form action="">
+           <h1>Make the move</h1>
+            <form name="signUpForm">
                 <div class="input-field">
-                    <input type="text" ng-model="newUser.firstName">
+                    <input type="text" ng-model="newUser.firstName" required>
                     <label>First Name</label>
                 </div>
                 <div class="input-field">
-                    <input type="text" ng-model="newUser.lastName">
+                    <input type="text" ng-model="newUser.lastName" required>
                     <label>Last Name</label>
                 </div>
                 <div class="input-field">
-                    <input type="text" ng-model="newUser.email">
+                    <input type="text" ng-model="newUser.email" required>
                     <label>Email Address</label>
                 </div>
                 <div class="input-field">
-                    <input type="text" ng-model="newUser.password">
+                    <input type="text" ng-model="newUser.password" required>
                     <label>Password</label>
                 </div>
                 <div class="input-field">
                     <input type="text" ng-model="newUser.location">
                     <label>Location</label>
                 </div>
-                <button type="button" ng-click="addUser(newUser)">Create new account</button>
+                <div class="input-field">
+                    <select material-select watch ng-model="newUser.isBusinessOwner">
+                        <option value="false">No</option>
+                        <option value="true">Yes</option>
+                    </select>
+                    <label for="">Business Owner?</label> 
+                </div>
+                <br>
+                <button type="button" class="waves-effect waves-light btn" ng-disabled="signUpForm.$invalid" ng-click="addUser(newUser)">Create new account</button>
             </form>
         </div>
     </div>

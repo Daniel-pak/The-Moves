@@ -8,14 +8,15 @@
                     <p>Where: {{event.location}}</p>
                     <p>{{event.description}}</p>
                     <p>More information can be found here: {{event.website}}</p>
-                    <a class="btn-floating btn-medium waves-effect waves-light red"><i class="material-icons">add</i></a>
+                    <a class="btn-floating btn-medium waves-effect waves-light red"><i class="fa fa-plus"></i></a>
                     <button class='btn' ng-click="showMap($index); clicked = !clicked">Show map</button>
                 </div>
             </li>
         </ul>
     </div>
 </div>
-<div class="row" >
+
+<div class="row">
     <div class="col s6 offset-s3">
         <div id="map" ng-show="clicked === false"></div>
     </div>

@@ -5,29 +5,30 @@
     <meta charset="UTF-8">
     <title>The Moves</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/css/materialize.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
-    <nav class="container-fluid nav-extended">
+    <nav class="container-fluid nav-extended" ng-controller="SignInController">
         <div class="nav-wrapper">
             <img src="http://www.clipartbest.com/cliparts/4c9/Led/4c9LedLgi.png" class="pin_drop" alt="">
             <ul class="right">
-                <li><a href="" data-target="signInModal" modal>Sign In</a></li>
-                <!-- change with ng-show/ng-hide -->
-                <li><a href="#/signup">Sign Up!</a></li>
-                <!-- change with ng-show/ng-hide -->
-                <li><a href="#">Settings</a></li>
-                <!-- ng-hide -->
+                <li ng-hide="UserService.loggedIn"><a href="" data-target="signInModal" modal>Sign In</a></li>
+                <li ng-hide="UserService.loggedIn"><a href="#/signup">Sign Up!</a></li>
+                <li ng-show="UserService.loggedIn">
+                    <button class="btn" ng-click="signOut()">Sign Out</button>
+                </li>
+                <li ng-show="UserService.loggedIn"><a href="#/settings">Settings</a></li>
             </ul>
             <ul class='nav-content tabs tabs-transparent'>
                 <li class="tab">
-                    <a href="#/home">home</a></li>
+                    <a href="#/home">home</a>
+                </li>
 
                 <li class="tab"><a href="#/daily">Daily Inspiration</a>
                 </li>
-                <li class="tab"><a href="#">My Calender/Events</a></li>
-                <!--ng-hide -->
+                <li class="tab" ng-show="UserService.loggedIn"><a href="#/myEvents">My Calender/Events</a></li>
             </ul>
         </div>
     </nav>
@@ -40,17 +41,19 @@
     <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular-route.js"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/js/materialize.min.js"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular-materialize/0.2.2/angular-materialize.min.js"></script>
-    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDzpBgyrXcttprcq6rtvnC4dBjRuj7tev0&libraries=places"></script>
+    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCUByRmmx0IyAgfiCUXLMCFqYaame6l5Y4&libraries=places"></script>
     <script src="app.js"></script>
     <!-- services -->
-    <!--    <script src="bower_components/angularjs-geolocation/dist/angularjs-geolocation.min.js"></script>-->
     <script src="components/services/eventService.js"></script>
     <script src="components/services/userService.js"></script>
-    <!-- routes -->
+    <!-- controllers -->
     <script src="components/main/main.js"></script>
     <script src="components/daily_inspiration/daily.js"></script>
     <script src="components/event_specific/event_specific.js"></script>
     <script src="components/signup/signup.js"></script>
+    <script src="components/signin/signInController.js"></script>
+    <script src="components/myEvents/myEvents.js"></script>
+    <script src="components/settings/settings.js"></script>
     <!-- directives -->
     <script src="components/signin/signin.js"></script>
 </body>

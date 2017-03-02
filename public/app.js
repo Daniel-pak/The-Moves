@@ -18,4 +18,15 @@ angular.module("TheMovesApp", ["ngRoute", "ui.materialize"])
             templateUrl: "components/signup/signup.html",
             controller: "SignUpController"
         })
+        .when('/myEvents', {
+            controller: "MyEventController",
+            templateUrl: "components/myEvents/myEvents.html"
+        })
+        .when('/settings', {
+            controller: "SettingsController",
+            templateUrl: "components/settings/settings.html"
+        })
+        .otherwise({
+            redirectTo: '/home'
+        })
 }])

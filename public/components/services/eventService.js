@@ -8,10 +8,21 @@ angular.module("TheMovesApp")
     this.getEventCategory = function (category) {
         return $http.get(`/event/category/${category}`)
     }
-    
-    this.getYourLocation = function() { 
-        return $http.post('https://www.googleapis.com/geolocation/v1/geolocate?key=AIzaSyDBHftUQVrdrHqiGk6eRmX6kY_wFGRdIMY')
+
+    this.getYourLocation = function () {
+        return $http.post('https://www.googleapis.com/geolocation/v1/geolocate?key=AIzaSyCUByRmmx0IyAgfiCUXLMCFqYaame6l5Y4')
     }
-    
+
+    this.getEventLocation = function (address) {
+        let newAddress = "" 
+        for (var i = 0; i < address.length; i++) { 
+            if (address[i] == " ") { 
+                newAddress += "+"
+            } else { 
+                newAddress += address[i]
+            }
+        }
+        return $http.get(`https://maps.googleapis.com/maps/api/geocode/json?address=${address}&key=AIzaSyCUByRmmx0IyAgfiCUXLMCFqYaame6l5Y4`)
+    }
 
 }])

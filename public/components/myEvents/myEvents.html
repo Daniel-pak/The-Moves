@@ -1,0 +1,21 @@
+<h1>{{user.firstName}} {{user.lastName}}'s Event List</h1>
+<div class="container-fluid">
+        <div class="col s5">
+            <ul class="collapsible popout" data-collapsible="">
+                <li ng-repeat="event in user.savedEventId track by $index">
+                    <div class="collapsible-header">
+                        <h3>{{event.title}}</h3>
+                        <p>{{event.date}}</p>
+                        <p>{{event.category | uppercase}}</p>
+                    </div>
+                    <div class="collapsible-body">
+                        <h6>Price: {{event.price | currency}}</h6>
+                        <p>Where: {{event.location}}</p>
+                        <p>{{event.description}}</p>
+                        <p>More information can be found here: {{event.website}}</p>
+                        <a class="btn-floating btn-medium waves-effect waves-light red" ng-click="deleteEventFromUser($index)" duration="1000" message="deleted" toast="click"><i class="fa fa-trash-o"></i></a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+</div>

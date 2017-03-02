@@ -4,7 +4,7 @@ var schema = mongoose.Schema;
 var eventSchema = new schema({
     category: { 
         type: String, 
-        enum: ["music", "party", "food", "outdoors", "night_time", "theater", "art"],
+        enum: ["music", "party", "food", "outdoors", "night_time", "theater", "art", "education"],
         required: true
     },
     title: {
@@ -16,8 +16,7 @@ var eventSchema = new schema({
         required: true
     },
     date: {
-        type: String,
-        required: true
+        type: String
     },
     location: {
         type: String,

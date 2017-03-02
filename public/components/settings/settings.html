@@ -1,0 +1,43 @@
+<div class="container">
+    <div class="row">
+        <div class="col s12">
+            <div ng-hide="editing">
+                <h1>My Profile</h1>
+                <h4>First Name: {{user.firstName}}</h4>
+                <h4>Last Name: {{user.lastName}}</h4>
+                <h4>Email Address: {{user.email}}</h4>
+                <h4>Password: {{user.password}}</h4>
+                <h4>Location: {{user.location}}</h4>
+            </div>
+            <button ng-hide="editing" ng-click="editing = true" class="waves-effect waves-light btn">Edit</button>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col s12">
+            <div ng-show="editing">
+                <h1>Edit Profile</h1>
+                <div class="input-field">
+                    <input type="text" ng-model="user.firstName">
+                    <label for="">First Name</label>
+                </div>
+                <div class="input-field">
+                    <input type="text" ng-model="user.lastName">
+                    <label for="">Last Name</label>
+                </div>
+                <div class="input-field">
+                    <input type="email" ng-model="user.email">
+                    <label for="">Email Address</label>
+                </div>
+                <div class="input-field">
+                    <input type="text" ng-model="user.password">
+                    <label for="">Password</label>
+                </div>
+                <div class="input-field">
+                    <input type="text" ng-model="user.location">
+                    <label for="">Location</label>
+                </div>
+            </div>
+        </div>
+    </div>
+    <button ng-show="editing" ng-click="editing = false; editUser(user)" class="waves-effect waves-light btn" duration="1000" message="Profile Edited!" toast="click">Done</button>
+</div>
