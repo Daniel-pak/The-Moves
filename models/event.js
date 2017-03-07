@@ -4,7 +4,7 @@ var schema = mongoose.Schema;
 var eventSchema = new schema({
     category: { 
         type: String, 
-        enum: ["music", "party", "food", "outdoors", "night_time", "theater", "art", "education"],
+        enum: ["music", "party", "food", "outdoors", "theater", "art", "education"],
         required: true
     },
     title: {
@@ -23,11 +23,11 @@ var eventSchema = new schema({
         required: true
     },
     website: String,
-    description: String, 
-    host: {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: "Business"
-    }
+    description: String
+//    host: {
+//        type: mongoose.Schema.Types.ObjectId,
+//        ref: "Business"
+//    }
 })
 
 module.exports = mongoose.model("Event", eventSchema)

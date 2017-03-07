@@ -6,17 +6,22 @@
                     <div class="collapsible-header">
                         <h3>{{event.title}}</h3>
                         <p>{{event.date}}</p>
-                        <p>{{event.category | uppercase}}</p>
                     </div>
                     <div class="collapsible-body">
                         <h6>Price: {{event.price | currency}}</h6>
                         <p>Where: {{event.location}}</p>
                         <p>{{event.description}}</p>
-                        <p>More information can be found here: <a ng-href="{{event.website}}" target="_blank">{{event.website}}</a></p>
-                        <a class="btn-floating btn-medium waves-effect waves-light red" ng-click="addEventToUser($index)" message="Added" duration="2000" toast='click'><i class="fa fa-plus"></i></a>
+                        <p>More information can be found here: <a ng-href="{{event.website}}">{{event.website}}</p></a>
+                        <a class="btn-floating btn-medium waves-effect waves-light red" ng-click="addEventToUser($index)" message="Added!" duration="1000" toast="click"><i class="fa fa-plus"></i></a>
+                        <button class='btn' ng-click="showMap($index); clicked = !clicked">Show map</button>
                     </div>
                 </li>
             </ul>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col s6 offset-s3">
+            <div id="map" ng-show="clicked === false"></div>
         </div>
     </div>
 </div>

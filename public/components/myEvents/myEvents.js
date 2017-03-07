@@ -2,6 +2,7 @@ angular.module("TheMovesApp")
 
 .controller("MyEventController", ['$scope', 'UserService', function ($scope, UserService) {
 
+    
     $scope.user = UserService.seeUser();
 
     $scope.deleteEventFromUser = function (index) {
@@ -10,4 +11,8 @@ angular.module("TheMovesApp")
         UserService.deleteEvent($scope.user.savedEventId)
     }
 
+    UserService.getMyEvents().then(function(response){ 
+        $scope.user = response.data
+    })
+    
 }])

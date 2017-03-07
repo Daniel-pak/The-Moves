@@ -26,6 +26,18 @@ angular.module("TheMovesApp", ["ngRoute", "ui.materialize"])
             controller: "SettingsController",
             templateUrl: "components/settings/settings.html"
         })
+        .when('/addEvent', {
+            controller: "AddEventController",
+            templateUrl: "components/addEvent/addEvent.html"
+        })
+        .when('/postedEvents', {
+            controller: "PostedEventsController",
+            templateUrl: "components/postedEvents/postedEvents.html"
+        })
+        .when('/search/:title', {
+            controller: "SearchedEventController", 
+            templateUrl: "components/searchedEvent/searchedEvent.html"
+        })
         .otherwise({
             redirectTo: '/home'
         })

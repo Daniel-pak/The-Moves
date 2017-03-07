@@ -27,14 +27,35 @@ userRoutes.get('/sign-in/:email/', function (req, res) {
 })
 
 userRoutes.put('/:id', function (req, res) {
-    User.findByIdAndUpdate(req.params.id, req.body, {new: true}, function (err, user) {
+    User.findByIdAndUpdate(req.params.id, req.body, {
+        new: true
+    }, function (err, user) {
         if (err) res.status(500).send(err)
         res.send(user)
     })
 })
 
+userRoutes.get('/myEvents/:id', function (req, res) {
+    User.findById(
+            req.params.id
+        )
+        .populate("savedEventId")
+        .exec(function (err, user) {
+            if (err) return res.status(500).send(err)
+            res.send(user)
+        })
+})
 
-
+userRoutes.get('/postedEvents/:id', function (req, res) {
+    User.findById(
+            req.params.id
+        )
+        .populate("postedEventId")
+        .exec(function (err, user) {
+            if (err) return res.status(500).send(err)
+            res.send(user)
+        })
+})
 
 
 

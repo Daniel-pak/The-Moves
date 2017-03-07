@@ -6,6 +6,7 @@ angular.module("TheMovesApp")
         UserService.createUser(newUser).then(function(response) { 
             console.log(response)
         })
+        $scope.newUser = {};
     }
     
 }])

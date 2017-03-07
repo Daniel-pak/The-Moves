@@ -19,14 +19,18 @@ var newUserSchema = new schema({
         required: true
     },
     location: String,
-    isLoggedIn: { 
-        type: Boolean, 
+    isLoggedIn: {
+        type: Boolean,
         default: false
     },
-    isBusinessOwner: { 
-        type: Boolean, 
+    isBusinessOwner: {
+        type: Boolean,
         default: false
     },
+    postedEventId: [{
+        type: schema.Types.ObjectId,
+        ref: "Event"
+    }],
     savedEventId: [{
         type: schema.Types.ObjectId,
         ref: "Event"

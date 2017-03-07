@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container background-set">
     <div class="row">
         <div class="col s6 offset-s3">
            <h1>Make the move</h1>
@@ -16,7 +16,7 @@
                     <label>Email Address</label>
                 </div>
                 <div class="input-field">
-                    <input type="text" ng-model="newUser.password" required>
+                    <input type="password" ng-model="newUser.password" required>
                     <label>Password</label>
                 </div>
                 <div class="input-field">
@@ -31,7 +31,7 @@
                     <label for="">Business Owner?</label> 
                 </div>
                 <br>
-                <button type="button" class="waves-effect waves-light btn" ng-disabled="signUpForm.$invalid" ng-click="addUser(newUser)">Create new account</button>
+                <button type="button" class="waves-effect waves-light btn" ng-disabled="signUpForm.$invalid" ng-click="addUser(newUser)" toast="click" duration="3000" message="ACCOUNT CREATED! Please sign in!">Create new account</button>
             </form>
         </div>
     </div>

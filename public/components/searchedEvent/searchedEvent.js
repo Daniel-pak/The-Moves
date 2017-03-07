@@ -1,12 +1,13 @@
 angular.module("TheMovesApp")
 
-.controller("EventSpecificController", ["$scope", "$routeParams", "eventService", "UserService", function ($scope, $routeParams, eventService, UserService) {
+.controller("SearchedEventController", ["$scope", "$routeParams", "eventService", "UserService", function ($scope, $routeParams, eventService, UserService) {
 
     $scope.clicked = false;
 
-    $scope.category = $routeParams.category
-    var category = $routeParams.category
-    eventService.getEventCategory(category).then(function (response) {
+    $scope.title = $routeParams.title
+    var search = $routeParams.title
+    eventService.getSearchedEvents(search).then(function (response) {
+        console.log(response)
         $scope.events = response.data
     })
 

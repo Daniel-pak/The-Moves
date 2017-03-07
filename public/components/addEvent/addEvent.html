@@ -1,0 +1,46 @@
+<div class="container background-set">
+    <div>
+        <h2 class="center-align">Add Your Awesome Event Here!</h2>
+    </div>
+    <div class="row">
+        <div class="col s8 offset-s2">
+            <form name="addEventForm">
+                <div class="input-field">
+                    <input type="text" required ng-model="newEvent.title">
+                    <label>Event Title</label>
+                </div>
+                <div class="input-field">
+                    <input type="text" required ng-model="newEvent.price">
+                    <label for="">Event Price</label>
+                </div>
+                <div class="input-field">
+                    <input type="text" ng-model="newEvent.date">
+                    <label>Event Date</label>
+                </div>
+                <div class="input-field">
+                    <input type="text" ng-model="newEvent.location">
+                    <label for="">Event Location</label>
+                </div>
+                <div class="input-field">
+                    <input type="text" ng-model="newEvent.website">
+                    <label for="">Website</label>
+                </div>
+                <textarea class="materialize-textarea" id="" cols="30" rows="10"></textarea>
+                <label for="">Description</label>
+                <div class="input-field">
+                    <select material-select watch ng-model="newEvent.category" required>
+                        <option value="music">Music</option>
+                        <option value="party">Party</option>
+                        <option value="food">Food</option>
+                        <option value="outdoors">Outdoors</option>
+                        <option value="theater">Theater</option>
+                        <option value="art">Art</option>
+                        <option value="education">Education</option>
+                    </select>
+                    <label>Category</label>
+                </div>
+                <button class="waves-effect waves-light btn red" message="Added Your Event!" duration="2000" toast ng-click="addEvent(newEvent)" ng-disabled="addEventForm.$invalid">Add Your Event!</button>
+            </form>
+        </div>
+    </div>
+</div>

@@ -11,14 +11,20 @@ angular.module("TheMovesApp")
                 console.log("You entered the wrong password!");
             } else {
                 console.log("Entered!");
+                if (person.isBusinessOwner === true) {
+                    UserService.isBusinessOwner();
+                    $scope.UserService = UserService;
+                    return UserService.enterUser(person._id);
+                }
                 return UserService.enterUser(person._id)
             }
         })
+        $scope.user = {};
     }
-    
-    $scope.signOut = function() { 
-        UserService.exitUser().then(function(response){ 
-            console.log(response)
+
+    $scope.signOut = function () {
+        UserService.exitUser().then(function (response) {
+            UserService.reset();
         })
         $location.path('/home')
     }

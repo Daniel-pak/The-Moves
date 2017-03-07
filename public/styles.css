@@ -1,16 +1,40 @@
-.pin_drop {
-    height: 60px;
-    width: 60px;
-    float: left;
-}
-
-#map { 
-    width: 100%; 
+#map {
+    width: 100%;
     height: 400px;
 }
-/*
 
-body { 
-    background: url('https://source.unsplash.com/user/joshua') no-repeat center center fixed; 
+body {
+    background: url(robert-bock-87041.jpg) no-repeat center center fixed;
     background-size: cover;
-}*/
+}
+
+.background-set {
+    background-color: antiquewhite;
+    opacity: .9;
+    padding: 5px;
+}
+
+.white_text {
+    color: white;
+}
+
+.black_text {
+    color: black;
+}
+
+.input-field {
+    color: black !important;
+}
+
+.background-set div.collapsible-body {
+    background-color: #D3D3D3 !important;
+}
+
+.themoves {
+    height: 60px;
+    padding: 5px;
+}
+
+* {
+    font-family: 'Hind Vadodara', sans-serif;
+}
