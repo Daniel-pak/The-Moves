@@ -1,9 +1,8 @@
-angular.module("TheMovesApp")
+angular.module("TheMovesApp.Auth")
 
-.service("UserService", ['$http', function ($http) {
-    this.loggedIn = false;
+.service("UserService", ['$http', '$location', 'TokenService', '$localStorage', function ($http, $location, TokenService, $localStorage) {
     this.id;
-    this.user;
+    this.user = $localStorage.user || {};
     this.businessOwner = false;
 
     this.createUser = function (newUser) {
@@ -11,43 +10,33 @@ angular.module("TheMovesApp")
     }
 
     this.validateUser = function (userObject) {
-        var email = userObject.email
-        return $http.get(`/user/sign-in/${email}`)
+        return $http.post(`/user/sign-in`, userObject).then(function(response){
+            TokenService.setToken(response.data.token)
+            $localStorage.user = response.data.user
+            return response.data;
+        });
     }
 
-    this.enterUser = function (id) {
-        this.loggedIn = true;
-        this.id = id
-        return $http.put(`/user/${id}`, {
-            isLoggedIn: true
-        })
+    this.logout = function() { 
+        TokenService.removeToken(); 
+        console.log('this is working')
+        $location.path('/');
     }
-
-    this.exitUser = function () {
-        this.loggedIn = false;
-        return $http.put(`/user/${this.id}`, {
-            isLoggedIn: true
-        })
-    }
-
-    this.seeUser = function () {
-        return this.user
+    
+    this.isAuthenticated = function() {
+        return !!TokenService.getToken(); 
     }
 
     this.addEvent = function (eventId) {
         this.user.savedEventId.push(eventId)
-        return $http.put(`/user/${this.user._id}`, {
+        return $http.put(`/api/user-info/${this.user._id}`, {
             savedEventId: this.user.savedEventId
         })
     }
-
-    this.saveUser = function (user) {
-        this.user = user
-    }
-
+    
     this.deleteEvent = function (events) {
         this.user.savedEventId = events;
-        return $http.put(`/user/${this.user._id}`, {
+        return $http.put(`/api/user-info/${this.user._id}`, {
             savedEventId: this.user.savedEventId
         })
     }
@@ -61,30 +50,30 @@ angular.module("TheMovesApp")
             location: user.location
         }
         let id = this.user._id;
-        return $http.put(`/user/${this.user._id}`, editedUser)
+        return $http.put(`/api/user-info/${this.user._id}`, editedUser)
     }
 
     this.getMyEvents = function () {
-        return $http.get(`/user/myEvents/${this.user._id}`)
+        return $http.get(`/api/user-info/myEvents/${this.user._id}`)
     }
-
-    this.isBusinessOwner = function () {
-        this.businessOwner = true;
-    }
-
-    this.reset = function () {
-        this.user = {};
-        this.loggedIn = false;
-        this.id = "";
-        this.businessOwner = false;
-    }
-    
-    this.postEvent = function(eventId) { 
-        this.user.postedEventId.push(eventId);
-        return $http.put(`/user/${this.user._id}`, {postedEventId: this.user.postedEventId})
-    }
-    
-    this.getPostedEvents = function() { 
-        return $http.get(`/user/postedEvents/${this.user._id}`)
-    }
+//
+//    this.isBusinessOwner = function () {
+//        this.businessOwner = true;
+//    }
+//
+//    this.reset = function () {
+//        this.user = {};
+//        this.loggedIn = false;
+//        this.id = "";
+//        this.businessOwner = false;
+//    }
+//    
+//    this.postEvent = function(eventId) { 
+//        this.user.postedEventId.push(eventId);
+//        return $http.put(`/user/${this.user._id}`, {postedEventId: this.user.postedEventId})
+//    }
+//    
+//    this.getPostedEvents = function() { 
+//        return $http.get(`/user/postedEvents/${this.user._id}`)
+//    }
 }])

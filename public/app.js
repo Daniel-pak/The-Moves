@@ -1,4 +1,4 @@
-angular.module("TheMovesApp", ["ngRoute", "ui.materialize"])
+angular.module("TheMovesApp", ["ngRoute", "ui.materialize", "TheMovesApp.Auth"])
 
 .config(["$routeProvider", function ($routeProvider) {
     $routeProvider
@@ -13,10 +13,6 @@ angular.module("TheMovesApp", ["ngRoute", "ui.materialize"])
         .when("/events/:category", {
             templateUrl: "components/event_specific/event_specific.html",
             controller: "EventSpecificController"
-        })
-        .when("/signup", {
-            templateUrl: "components/signup/signup.html",
-            controller: "SignUpController"
         })
         .when('/myEvents', {
             controller: "MyEventController",

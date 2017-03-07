@@ -1,4 +1,4 @@
-angular.module("TheMovesApp")
+angular.module("TheMovesApp.Auth")
 
 .controller("SignUpController", ["$scope", "UserService", function($scope, UserService){ 
 

@@ -7,10 +7,10 @@ angular.module("TheMovesApp")
     }
     
     this.getEvents = function () {
-        return $http.get('/event')
+        return $http.get('/allevents')
     }
     this.getEventCategory = function (category) {
-        return $http.get(`/event/category/${category}`)
+        return $http.get(`/allevents/category/${category}`)
     }
     
     this.deleteEvent = function(id) { 
@@ -34,7 +34,7 @@ angular.module("TheMovesApp")
     }
     
     this.getSearchedEvents = function(search_input) { 
-        return $http.get('/event/search?title=' + search_input);
+        return $http.get('/allevents/search?title=' + search_input);
     }
 
 }])

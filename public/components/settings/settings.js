@@ -2,7 +2,7 @@ angular.module("TheMovesApp")
 
 .controller("SettingsController", ["$scope", "UserService", function($scope, UserService){
 
-    $scope.user = UserService.seeUser()
+    $scope.user = UserService.user;
     
     $scope.editing = false;
     
