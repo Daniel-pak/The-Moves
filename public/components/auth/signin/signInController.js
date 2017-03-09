@@ -4,11 +4,12 @@ angular.module("TheMovesApp.Auth")
     $scope.UserService = UserService;
     $scope.signIn = function (user) {
         UserService.validateUser(user).then(function () {
-                $scope.UserService = UserService;
-                $scope.user = {};
-            })
+            $scope.UserService = UserService;
+        })
+        $scope.user = {};
+
     }
     $scope.logout = function () {
-            UserService.logout();
-        }
+        UserService.logout();
+    }
 }]);

@@ -3,7 +3,7 @@ angular.module("TheMovesApp")
 .service("eventService", ["$http", function ($http) {
 
     this.postEvent = function(event) { 
-        return $http.post('/event', event)
+        return $http.post('/api/event', event)
     }
     
     this.getEvents = function () {
@@ -14,7 +14,7 @@ angular.module("TheMovesApp")
     }
     
     this.deleteEvent = function(id) { 
-        return $http.delete(`/event/${id}`);
+        return $http.delete(`/api/event/${id}`);
     }
 
     this.getYourLocation = function () {

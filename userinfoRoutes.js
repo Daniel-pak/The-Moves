@@ -3,13 +3,14 @@ var userInfoRoutes = express.Router()
 var User = require("./models/user")
 
 userInfoRoutes.get('/myEvents/:id', function (req, res) {
+    console.log(req.params.id)
     User.findById(
             req.params.id
         )
         .populate("savedEventId")
         .exec(function (err, user) {
             if (err) return res.status(500).send(err)
-            res.send(user)
+            return res.send(user)
         })
 })
 
@@ -20,7 +21,7 @@ userInfoRoutes.get('/postedEvents/:id', function (req, res) {
         .populate("postedEventId")
         .exec(function (err, user) {
             if (err) return res.status(500).send(err)
-            res.send(user)
+            return res.send(user)
         })
 })
 

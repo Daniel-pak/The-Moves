@@ -11,7 +11,7 @@
             </ul>
             <ul class='nav-content tabs tabs-transparent'>
                 <li class="tab">
-                    <a href="#/home">home</a>
+                    <a href="#/home">Home</a>
                 </li>
                 <li class="tab">
                     <a href="#/daily">Daily Inspiration</a>
@@ -19,10 +19,10 @@
                 <li class="tab" ng-show="UserService.isAuthenticated()">
                     <a href="#/myEvents">Saved Events</a>
                 </li>
-                <li class="tab" ng-show="UserService.businessOwner">
+                <li class="tab" ng-show="UserService.isBusinessOwner()">
                     <a href="#/addEvent">Add Event</a>
                 </li>
-                <li class="tab" ng-show="UserService.businessOwner">
+                <li class="tab" ng-show="UserService.isBusinessOwner()">
                     <a href="#/postedEvents">Posted Events</a>
                 </li>
             </ul>
