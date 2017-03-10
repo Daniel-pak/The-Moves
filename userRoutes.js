@@ -22,19 +22,27 @@ userRoutes.post('/sign-in', function (req, res) {
         email: req.body.email
     }, function (err, user) {
         if (err) res.status(500).send(err);
-        if (!user || user.password !== req.body.password) {
+        if (!user) {
             return res.status(401).send({
                 success: false,
                 message: "Invalid email or password"
             })
         }
-        var token = jwt.sign(user.toObject(), config.secret);
-        res.send({
-            token: token,
-            success: true,
-            user: user.toObject(),
-            message: "Here's your token"
+        user.checkPassword(req.body.password, function (err, isMatch) {
+            if (err) return res.status(403).send(err);
+            if (!isMatch) res.status(403).send({
+                success: false,
+                message: "Invalid email or password"
+            })
+            var token = jwt.sign(user.toObject(), config.secret);
+            res.send({
+                token: token,
+                success: true,
+                user: user.withoutPassword(),
+                message: "Here's your token"
+            })
         })
+
     })
 })
 
