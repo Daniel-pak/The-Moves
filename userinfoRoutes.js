@@ -3,7 +3,6 @@ var userInfoRoutes = express.Router()
 var User = require("./models/user")
 
 userInfoRoutes.get('/myEvents/:id', function (req, res) {
-    console.log(req.params.id)
     User.findById(
             req.params.id
         )
