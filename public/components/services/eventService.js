@@ -3,18 +3,18 @@ angular.module("TheMovesApp")
 .service("eventService", ["$http", function ($http) {
 
     this.postEvent = function(event) { 
-        return $http.post('http://localhost:9000/api/event', event)
+        return $http.post('/themoves/api/event', event)
     }
     
     this.getEvents = function () {
-        return $http.get('http://localhost:9000/allevents')
+        return $http.get('/themoves/allevents')
     }
     this.getEventCategory = function (category) {
-        return $http.get(`http://localhost:9000/allevents/category/${category}`)
+        return $http.get(`/themoves/allevents/category/${category}`)
     }
     
     this.deleteEvent = function(id) { 
-        return $http.delete(`http://localhost:9000/api/event/${id}`);
+        return $http.delete(`/themoves/api/event/${id}`);
     }
 
     this.getYourLocation = function () {
@@ -34,7 +34,7 @@ angular.module("TheMovesApp")
     }
     
     this.getSearchedEvents = function(search_input) { 
-        return $http.get('http://localhost:9000/allevents/search?title=' + search_input);
+        return $http.get('/themoves/allevents/search?title=' + search_input);
     }
 
 }])
