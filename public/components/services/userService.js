@@ -3,7 +3,7 @@ angular.module("TheMovesApp.Auth")
 .service("UserService", ['$http', '$location', 'TokenService', '$localStorage', function ($http, $location, TokenService, $localStorage) {
     this.user = $localStorage.user || {};
     this.createUser = function (newUser) {
-        return $http.post('/user', newUser)
+        return $http.post('/themoves/user', newUser)
     }
 
     this.isBusinessOwner = function () {
@@ -15,7 +15,7 @@ angular.module("TheMovesApp.Auth")
     }
 
     this.validateUser = function (userObject) {
-        return $http.post(`/user/sign-in`, userObject).then(function (response) {
+        return $http.post(`/themoves/user/sign-in`, userObject).then(function (response) {
             TokenService.setToken(response.data.token)
             $localStorage.user = response.data.user;
             return response.data;
