@@ -34,14 +34,14 @@ angular.module("TheMovesApp.Auth")
 
     this.addEvent = function (eventId) {
         $localStorage.user.savedEventId.push(eventId)
-        return $http.put(`/api/user-info/${$localStorage.user._id}`, {
+        return $http.put(`localhost:9000/api/user-info/${$localStorage.user._id}`, {
             savedEventId: $localStorage.user.savedEventId
         })
     }
 
     this.deleteEvent = function (events) {
         $localStorage.user.savedEventId = events;
-        return $http.put(`/api/user-info/${$localStorage.user._id}`, {
+        return $http.put(`localhost:9000/api/user-info/${$localStorage.user._id}`, {
             savedEventId: $localStorage.user.savedEventId
         })
     }
@@ -54,21 +54,21 @@ angular.module("TheMovesApp.Auth")
             password: user.password,
             location: user.location
         }
-        return $http.put(`/api/user-info/${$localStorage.user._id}`, editedUser)
+        return $http.put(`localhost:9000/api/user-info/${$localStorage.user._id}`, editedUser)
     }
 
     this.getMyEvents = function () {
-        return $http.get(`/api/user-info/myEvents/${$localStorage.user._id}`)
+        return $http.get(`localhost:9000/api/user-info/myEvents/${$localStorage.user._id}`)
     }
 
     this.postEvent = function (eventId) {
         $localStorage.user.postedEventId.push(eventId);
-        return $http.put(`/api/user-info/${$localStorage.user._id}`, {
+        return $http.put(`localhost:9000/api/user-info/${$localStorage.user._id}`, {
             postedEventId: $localStorage.user.postedEventId
         })
     }
 
     this.getPostedEvents = function () {
-        return $http.get(`/api/user-info/postedEvents/${$localStorage.user._id}`)
+        return $http.get(`localhost:9000/api/user-info/postedEvents/${$localStorage.user._id}`)
     }
             }])
