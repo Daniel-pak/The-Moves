@@ -8,7 +8,7 @@ var path = require('path');
 var userRoutes = require('./userRoutes');
 var eventRoutes = require('./eventRoutes');
 var config = require('./config');
-var port = process.env.PORT || 8000;
+var port = process.env.PORT || 9000;
 
 app.use(bodyParser.json());
 
